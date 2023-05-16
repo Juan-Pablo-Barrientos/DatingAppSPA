@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-secondary bg-secondary nav-shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand text-center logo" href="#">DATING APP</a>
+    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link ps-3 ps-lg-2 text-white rounded-3" [routerLink]="'/'"
+          data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+          routerLinkActive="bg-secondary" [routerLinkActiveOptions]="{exact: true}">Matches</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ps-3 ps-lg-2 text-white rounded-3" [routerLink]="'/'"
+          data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+          routerLinkActive="bg-secondary" [routerLinkActiveOptions]="{exact: true}">Lists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link ps-3 ps-lg-2 text-white rounded-3" [routerLink]="'/'"
+          data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+          routerLinkActive="bg-secondary" [routerLinkActiveOptions]="{exact: true}">Messages</a>
+        </li>
+      </ul>
+
+      <div class="dropdown me-2" *ngIf="this.token">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome user
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#"><i class="fa fa-user me-1"></i>Edit Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" (click)="logOut()"><i class="fa fa-sign-out me-1"></i>Logout</a>
+        </div>
+      </div>
+
+      <form #loginForm="ngForm" class="d-flex" role="search" (ngSubmit)="login()" *ngIf="!this.token">
+        <input class="form-control mr-sm-2 me-2" type="text" name="username" placeholder="Username" [(ngModel)]="model.Username" required>
+        <input class="form-control mr-sm-2 me-2" type="password" name="password" placeholder="Password" [(ngModel)]="model.Password" required>
+        <button [disabled]="!loginForm.valid" class="btn btn-success" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</nav>

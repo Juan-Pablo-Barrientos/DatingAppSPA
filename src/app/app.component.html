@@ -1,6 +1,8 @@
-<div>
-    <h1>
-      Dating App
-    </h1>
-  <app-value></app-value>
+<div class="wrapper">
+  <header class="page-header"><app-nav></app-nav></header>
+  <main class="page-body">
+    <router-outlet></router-outlet>
+    <router-outlet name="aux"></router-outlet>
+  </main>
+  <footer class="page-footer"><app-footer></app-footer></footer>
 </div>
