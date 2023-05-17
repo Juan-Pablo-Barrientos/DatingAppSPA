@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './modules/auth/services/auth.service';
 import { AuthModule } from './modules/auth/auth.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { ErrorInterceptorProvider } from './modules/auth/services/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SharedModule } from './modules/shared/shared.module';
     SharedModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    ErrorInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })

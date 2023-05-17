@@ -25,8 +25,8 @@ export class NavComponent implements OnInit {
         this.token=localStorage.getItem('token')
         console.log('Logged in successfully');
       },
-      error: ()=>{
-        console.log('Failed to login');
+      error: error=>{
+        console.log(error);
       }
     })
   }
