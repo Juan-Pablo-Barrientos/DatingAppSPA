@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ErrorInterceptorProvider } from './services/error.interceptor';
 
 @NgModule({
   imports: [

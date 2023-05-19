@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { ErrorInterceptorProvider } from '../auth/services/error.interceptor';
 
 @NgModule({
   imports: [
