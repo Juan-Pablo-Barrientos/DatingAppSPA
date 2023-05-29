@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AuthService } from './modules/auth/services/auth.service';
 import { ErrorInterceptorProvider } from './modules/auth/services/error.interceptor';
 import { AlertifyService } from './modules/shared/services/alertify.service';
+import { UserFeaturesModule } from './modules/userFeatures/userFeatures.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AlertifyService } from './modules/shared/services/alertify.service';
     HttpClientModule,
     FormsModule,
     AuthModule,
-    SharedModule
+    SharedModule,
+    UserFeaturesModule
   ],
   providers: [
     AuthService,

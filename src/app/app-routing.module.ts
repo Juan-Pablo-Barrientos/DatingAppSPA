@@ -2,18 +2,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/shared/components/home/home.component';
 import { RegisterComponent } from './modules/auth/components/register/register.component';
+import { MemberListComponent } from './modules/userFeatures/components/memberList/memberList.component';
+import { UserLikesListComponent } from './modules/userFeatures/components/userLikesList/userLikesList.component';
+import { MessagesComponent } from './modules/userFeatures/components/messages/messages.component';
+import { authGuard } from './modules/auth/guards/auth.guard';
 
 const routes: Routes = [
+  {path:'', component:HomeComponent},
+  {path:'register', component: RegisterComponent, title:'Dating App: Register'},
   {
     path:'',
-    component: HomeComponent,
-    title:'Dating App'
+    runGuardsAndResolvers:'always',
+    canActivate:[authGuard],
+    children:[
+      {path:'members', component: MemberListComponent, title:'Dating App'},
+      {path:'userLikesList', component: UserLikesListComponent, title:'Dating App'},
+      {path:'messages', component: MessagesComponent, title:'Dating App'},
+    ]
   },
-  {
-    path:'register',
-    component: RegisterComponent,
-    title:'Dating App: Register'
-  }
+  {path:'home', component: HomeComponent, title:'Dating App'},
+  {path:'**', redirectTo:'', pathMatch:'full', title:'Dating App'}
 ];
 
 @NgModule({
