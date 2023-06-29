@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, map } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ jwtHelper = new JwtHelperService
 savedToken:any;
 decodedToken$:BehaviorSubject<any> = new BehaviorSubject<any>([])
 
-baseUrl = "http://localhost:5000/api/auth/";
+baseUrl = environment.apiUrl+'auth/';
 
 constructor(private http: HttpClient) { }
 
