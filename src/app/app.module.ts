@@ -17,6 +17,7 @@ import { UserService } from './modules/auth/services/user.service';
 import { MemberListComponent } from './modules/members/memberList/memberList.component';
 import { MemberCardComponent } from './modules/members/memberCard/memberCard.component';
 import { MemberDetailComponent } from './modules/members/memberDetail/memberDetail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -37,13 +38,15 @@ export function tokenGetter(){
     AuthModule,
     SharedModule,
     UserFeaturesModule,
+    TabsModule.forRoot(),
     JwtModule.forRoot({
       config:{
         tokenGetter:tokenGetter,
         disallowedRoutes: ['localhost:5000/api/auth'],
         allowedDomains: ['localhost:5000']
       }
-    })
+    }),
+    NgbModule
   ],
   providers: [
     AuthService,

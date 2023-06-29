@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/modules/auth/services/user.service';
 import { User } from 'src/app/modules/shared/models/User';
 import { AlertifyService } from 'src/app/modules/shared/services/alertify.service';
@@ -11,21 +12,11 @@ import { AlertifyService } from 'src/app/modules/shared/services/alertify.servic
 export class MemberListComponent implements OnInit {
   users: User[]=[];
 
-  constructor(private userService: UserService, private alertify: AlertifyService) { }
+  constructor(private userService: UserService, private alertify: AlertifyService, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadUsers();
-  }
-
-  loadUsers(){
-    this.userService.getUsers().subscribe({
-      next: (users:User[])=>{
-        this.users=users
-      },
-      error: error=>{
-        this.alertify.error(error)
-      }
+    this.route.data.subscribe(data =>{
+      this.users = data['users']
     })
   }
-
 }

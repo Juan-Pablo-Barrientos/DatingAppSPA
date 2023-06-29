@@ -10,22 +10,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./memberDetail.component.css']
 })
 export class MemberDetailComponent implements OnInit {
-  user?: User;
+  user!: User;
 
   constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadUser();
-  }
-
-  loadUser(){
-    this.userService.getUser(+this.route.snapshot.params['id']).subscribe({
-      next: (user:User)=>{
-        this.user = user
-      },
-      error: error=>{
-        this.alertify.error(error)
-      }
+    this.route.data.subscribe(data =>{
+      this.user = data['user']
+      console.log(this.user)
     })
   }
 
