@@ -4,6 +4,8 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+
 html, body {
   box-sizing: border-box;
   height: 100%;
@@ -69,6 +71,3 @@ html, body {
   border-top: 1px solid #eee;
   padding: 15px 0;
 }
-
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';

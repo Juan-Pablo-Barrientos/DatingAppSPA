@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../shared/models/User';
-import { UserService } from '../../auth/services/user.service';
-import { AlertifyService } from '../../shared/services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/app/modules/shared/models/User';
 
 @Component({
   selector: 'app-memberDetail',
@@ -12,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MemberDetailComponent implements OnInit {
   user!: User;
 
-  constructor(private userService: UserService, private alertify: AlertifyService, private route: ActivatedRoute) { }
+  constructor( private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.data.subscribe(data =>{

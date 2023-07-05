@@ -14,10 +14,11 @@ import { ErrorInterceptorProvider } from './modules/auth/services/error.intercep
 import { AlertifyService } from './modules/shared/services/alertify.service';
 import { UserFeaturesModule } from './modules/userFeatures/userFeatures.module';
 import { UserService } from './modules/auth/services/user.service';
-import { MemberListComponent } from './modules/members/memberList/memberList.component';
-import { MemberCardComponent } from './modules/members/memberCard/memberCard.component';
-import { MemberDetailComponent } from './modules/members/memberDetail/memberDetail.component';
+import { MemberCardComponent } from './modules/members/components/memberCard/memberCard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MemberEditComponent } from './modules/members/components/memberEdit/memberEdit.component';
+import { MemberListComponent } from './modules/members/components/memberList/memberList.component';
+import { MemberDetailComponent } from './modules/members/components/memberDetail/memberDetail.component';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -28,7 +29,8 @@ export function tokenGetter(){
     AppComponent,
     MemberListComponent,
     MemberCardComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    MemberEditComponent
    ],
   imports: [
     BrowserModule,
