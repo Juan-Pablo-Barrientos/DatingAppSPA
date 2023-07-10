@@ -47,19 +47,9 @@
           </tab>
           <tab [heading]="'Photos'" class="photosTab" style="width: 50%;">
             <ngb-carousel *ngIf="user.photos" >
-              <ng-template ngbSlide >
+              <ng-template ngbSlide *ngFor="let photo of user.photos" >
                 <div class="picsum-img-wrapper" >
-                  <img [src]="user.photos[0].url" alt="Random first slide" style="width: 100%;"/>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img [src]="user.photos[0].url" alt="Random second slide" style="width: 100%;"/>
-                </div>
-              </ng-template>
-              <ng-template ngbSlide>
-                <div class="picsum-img-wrapper">
-                  <img [src]="user.photos[0].url" alt="Random third slide"style="width: 100%;" />
+                  <img [src]="photo.url" [alt]="photo.description" style="width: 100%;"/>
                 </div>
               </ng-template>
             </ngb-carousel>

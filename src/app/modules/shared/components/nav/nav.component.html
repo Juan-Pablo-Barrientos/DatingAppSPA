@@ -25,6 +25,9 @@
       </ul>
     </div>
     <div class="dropdown me-2" *ngIf="this.decodedToken.unique_name">
+      <span class="me-1">
+        <img [src]="photoUrl" alt="">
+      </span>
       <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Welcome {{this.decodedToken?.unique_name | titlecase}}
       </button>
