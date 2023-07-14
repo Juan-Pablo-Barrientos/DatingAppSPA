@@ -1,6 +1,7 @@
 import { Photo } from "./Photo";
 
 export interface User {
+  dateOfBirth: string;
   id:number;
   username: string;
   knownAs: string;
